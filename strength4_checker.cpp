@@ -104,20 +104,17 @@ int main() {
 
                     int bandwidth = maxCnt - minCnt;
                     globalMaxBandwidth = max(globalMaxBandwidth, bandwidth);
-
-                    // Early exit if we already exceed 1
-                    if (globalMaxBandwidth > 1) {
-                        cout << "NO\n";
-                        cout << "Max bandwidth observed = " << globalMaxBandwidth << "\n";
-                        return 0;
-                    }
                 }
             }
         }
     }
 
-    // If we got here, globalMaxBandwidth <= 1
-    cout << "YES\n";
+    // Report overall bandwidth and validity
+    if (globalMaxBandwidth <= 1) {
+        cout << "YES\n";
+    } else {
+        cout << "NO\n";
+    }
     cout << "Max bandwidth observed = " << globalMaxBandwidth << "\n";
     return 0;
 }
